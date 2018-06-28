@@ -61,7 +61,7 @@ color2 1994D1
 #color3 1994D1
 
 # Lua Load  ##${voffset 750}
-lua_load ~/.conky/conky_mixed/rings-v1.2.1.lua
+lua_load ~/.conky/conky_rings/rings.lua
 lua_draw_hook_pre conky_ring_stats
 lua_draw_hook_pre conky_main
 
