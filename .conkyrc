@@ -1,0 +1,119 @@
+# Conky settings #
+background no
+update_interval 1
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+override_utf8_locale yes
+
+double_buffer yes
+no_buffers yes
+
+text_buffer_size 2048
+#imlib_cache_size 0
+
+temperature_unit celsius
+
+# XFCE lightdm backround issue
+own_window_argb_visual yes
+own_window_argb_value 0
+
+# Window specifications #
+own_window_class Conky
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+#own_window_hints undecorate
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+
+border_inner_margin 0
+border_outer_margin 0
+
+minimum_size 560 600
+maximum_width 560
+
+alignment tr
+gap_x -20
+gap_y 100
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+#default_color gray
+default_shade_color red
+default_outline_color green
+
+# Text settings #
+use_xft yes
+override_utf8_locale yes
+xftfont Play:normal:size=8
+xftalpha 0.9
+uppercase no
+
+default_color 333333
+color0 b2ff34
+color1 efefef
+color2 1994D1
+#color3 1994D1
+
+# Lua Load  ##${voffset 750}
+lua_load ~/.conky/conky_mixed/rings-v1.2.1.lua
+lua_draw_hook_pre conky_ring_stats
+lua_draw_hook_pre conky_main
+
+TEXT
+${font Play:normal:size=8}${voffset 16}${color1}${goto 106}${freq_g cpu0} Ghz${alignr 370}${acpitemp} °C
+${font Play:normal:size=8}${voffset 0}${goto 120}${color1}CPU 1 ${alignr 370}${color1}${cpu cpu0}%
+${font Play:normal:size=8}${voffset 2}${goto 120}${color1}CPU 2${alignr 370}${color1}${cpu cpu1}%
+${font Play:normal:size=8}${voffset 2}${goto 120}${color1}CPU 3${alignr 370}${color1}${cpu cpu2}%
+${font Play:normal:size=8}${voffset 2}${goto 120}${color1}CPU 4${alignr 370}${color1}${cpu cpu3}%
+${goto 50}${voffset 16}${font Play:normal:size=8}${color1}${top name 1}${alignr 345}${top cpu 1}%
+${goto 50}${font Play:normal:size=8}${color1}${top name 2}${alignr 345}${top cpu 2}%
+${goto 50}${font Play:normal:size=8}${color1}${top name 3}${alignr 345}${top cpu 3}%
+${font Michroma:size=10}${color0}${goto 50}${voffset 3}CPU
+
+${font Michroma:size=10}${color0}${goto 405}${voffset 15}MEMORY
+${goto 350}${voffset -2}${font Play:normal:size=8}${color1}${top_mem name 1}${alignr 70}${top_mem mem 1}%
+${goto 350}${font Play:normal:size=8}${color1}${top_mem name 2}${alignr 70}${top_mem mem 2}%
+${goto 350}${font Play:normal:size=8}${color1}${top_mem name 3}${alignr 70}${top_mem mem 3}%
+${font Play:normal:size=8}${voffset 12}${goto 350}${color1}SWAP${alignr 70}${color1}${swap} / ${color1}${swapmax}
+${font Play:normal:size=8}${voffset 2}${goto 350}${color1}RAM ${alignr 70}${color1}${mem} / ${color1}${memmax}
+
+${font Play:normal:size=8}${goto 70}${voffset -85}Root${color1}${alignr 350}${fs_used /} / ${fs_size /}
+${font Play:normal:size=8}${goto 70}${voffset 0}Home${alignr 350}${color1}${fs_used /home} / ${fs_size /home}
+${font Michroma:size=10}${color0}${goto 70}HDD  ${font Play:normal:size=8}${alignr 330}${voffset 10}${color1}${exec hddtemp | grep -o -e '[0-9]*.C$'}
+
+${font Michroma:size=10}${color0}${voffset 20}${goto 340}INTERNET
+# EDITION FINIR WLAN
+${if_existing /proc/net/route wlo1}
+    ${font Play:normal:size=8}${goto 300}${voffset -20}${color1}WiFi${alignr 120}${color1}${wireless_essid wlo1}
+    ${font Play:normal:size=8}${color1}${goto 300}Up${alignr 120}${color1}${color1}${upspeed wlo1} / ${totalup wlo1}
+    ${font Play:normal:size=8}${goto 300}${color1}Down${alignr 120}${color1}${color1}${downspeed wlo1} / ${totaldown wlo1}
+    ${font Play:normal:size=8}${goto 300}${voffset 2}Local IP${alignr 120}${addr wlo1}
+    ${font Play:normal:size=8}${goto 300}${voffset 1}Public IP${alignr 120}${execi 3600 wget -q -O - checkip.dyndns.org | sed -e 's/[^[:digit:]\|.]//g'}
+${else}
+# |--ETH0
+    ${if_existing /proc/net/route eth0}
+        ${font Play:normal:size=8}${color1}${goto 298}${voffset 6}Up${alignr 120}${color1}${totalup eth0} / ${color1}${upspeed eth0}
+        ${font Play:normal:size=8}${goto 298}${color1}Down${alignr 120}${color1}${totaldown eth0} / ${color1}${downspeed eth0}
+        ${font Play:normal:size=8}${goto 300}${voffset 2}Local IP${alignr 120}${addr eth0}
+        ${font Play:normal:size=8}${goto 300}${voffset 1}Public IP${alignr 120}${execi 3600 wget -q -O - checkip.dyndns.org | sed -e 's/[^[:digit:]\|.]//g'}
+    ${endif}
+${endif}
+
+${font Michroma:size=9}${goto 80}${voffset -70}${color0}${time %a} ${color0}${time %x}
+${font Michroma:size=18}${goto 108}${color1}${voffset -4}${time %H}:${time %M}
+
+${font Michroma:size=8}${color0}${goto 300}${voffset -10}BATTERY
+${font Play:size=8}${color0}${goto 300}${color1}${battery_percent}% remaining
+${font Play:normal:size=8}${goto 300}${color1}${exec upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -o -E 'state:.*' | grep -o -e '[a-z]*$'} | ${battery_time}
+
+
+${font Play:normal:size=8}${goto 300}Uptime${color1}${alignr 180}${uptime_short}
+
+#${font Michroma:bold:size=11}${color0}${voffset 70}${alignr 100}${desktop}   ${machine}
+#${execpi 53 $HOME/conky/nagios.sh}
