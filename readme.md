@@ -2,7 +2,7 @@
 
 System monitor for your desktop
 
-![Conky pings preview](/preview.png?raw=true "Conky pings preview")
+![Conky pings preview](/img/preview.png?raw=true "Conky pings preview")
 
 ### Prerequisite packages
 
@@ -25,4 +25,4 @@ To intall above packages on **Fedora** system run following command:
 
 ### Screenshot
 
-![Conky pings screenshot](/screenshot.png?raw=true "Conky pings screenshot")
+![Conky pings screenshot](/img/screenshot.png?raw=true "Conky pings screenshot")
