@@ -1,0 +1,28 @@
+# Conky Rings
+
+System monitor for your desktop
+
+![Conky pings preview](/preview.png?raw=true "Conky pings preview")
+
+### Prerequisite packages
+
+1.  conky
+2.  conky-manager
+
+To intall above packages on **Fedora** system run following command:
+
+`sudo dnf install conky conky-manager`
+
+### Script installation
+
+1.  Clone the repo
+
+    `git clone https://github.com/SaurabhKharivale/conky-rings.git ~/.conky/conky_rings`
+
+    > Note: If you clone the repo into directory other than `~/.conky/conky_rings` then you will need to also update the path inside `.conkyrc` file.
+
+2.  Load the scrpit through conky manager
+
+### Screenshot
+
+![Conky pings screenshot](/screenshot.png?raw=true "Conky pings screenshot")
