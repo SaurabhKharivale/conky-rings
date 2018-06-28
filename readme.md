@@ -21,7 +21,9 @@ To intall above packages on **Fedora** system run following command:
 
     > Note: If you clone the repo into directory other than `~/.conky/conky_rings` then you will need to also update the path inside `.conkyrc` file.
 
-2.  Load the scrpit through conky manager
+2.  Install fonts included inside the repo (optional)
+
+3.  Load the scrpit through conky manager
 
 ### Screenshot
 
