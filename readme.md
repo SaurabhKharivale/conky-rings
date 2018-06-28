@@ -23,8 +23,16 @@ To intall above packages on **Fedora** system run following command:
 
 2.  Install fonts included inside the repo (optional)
 
-3.  Load the scrpit through conky manager
+3.  Load the scrpit through conky manager.
 
 ### Screenshot
 
 ![Conky pings screenshot](/img/screenshot.png?raw=true "Conky pings screenshot")
+
+### Credits
+
+[Dark-Mixed-Conky-on-Cinnamon](https://www.deviantart.com/la-manoue/art/Dark-Mixed-Conky-on-Cinnamon-396225134)
+by [La-manoue](https://www.deviantart.com/la-manoue/)
+
+[conky2](https://www.deviantart.com/dinozaur1982/art/conky2-316541287)
+by [dinozaur1982](https://www.deviantart.com/dinozaur1982/)
