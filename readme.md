@@ -1,6 +1,6 @@
 # Conky Rings
 
-System monitor for your desktop
+System monitor on your desktop
 
 ![Conky pings preview](/img/preview.png?raw=true "Conky pings preview")
 
